@@ -1,16 +1,12 @@
-
 INCLUDE:=${INCLUDE} -I../../apue.3e/include -I../../apue.3e/lib
-LIB :=${LIB}  ../../apue.3e/lib/libapue.a -L/usr/local/lib  #-L../localcomm/.lib -lmysqlagentcomm ${MysqlSrc_LIB}  -L../zookeeper/.lib -lcommzookeeper -L${boostdir}/lib -lboost_program_options  ${LIB} ${OPENSSL}libssl.a  ${OPENSSL}libcrypto.a  -lz
+LIB :=${LIB}  ../../apue.3e/lib/libapue.a -L/usr/local/lib  
 
-OBJS = #flashbackfile.o config.o
+OBJS = 
 LIBA = 
 
 UNITTEST_SOURCES = $(wildcard *.cpp)
 UNITTEST_DISTS   = $(patsubst %.cpp, %, $(UNITTEST_SOURCES))
 
-#target=../../bin/gtidprint 
-
-#all:  $(target) #$(LIBA)
 all:  $(UNITTEST_DISTS)
 
 
@@ -23,7 +19,7 @@ $(LIBA): $(OBJS)
 
 	
 %:%.cpp
-	$(CXX) ${INCLUDE} $(CFLAGS) -o $@   $^  $(LIB)  -Wl,-Bstatic -Wl,-Bdynamic #-rdynamic	
+	$(CXX) ${INCLUDE} $(CFLAGS) -o $@   $^  $(LIB)  -Wl,-Bstatic -Wl,-Bdynamic 	
 
 clean:
 	rm -f *.o .*.d  $(LIBA)
