@@ -19,7 +19,7 @@ $(LIBA): $(OBJS)
 
 	
 %:%.cpp
-	$(CXX) ${INCLUDE} $(CFLAGS) -o $@   $^  $(LIB)  -Wl,-Bstatic -Wl,-Bdynamic 	
+	$(CXX) ${INCLUDE} $(CFLAGS) -o $@   $^  $(LIB)  #-Wl,-Bstatic -Wl,-Bdynamic 	
 
 clean:
 	rm -f *.o .*.d  $(LIBA)
